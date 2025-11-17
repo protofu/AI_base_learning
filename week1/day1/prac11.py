@@ -16,3 +16,16 @@ scores = cross_val_score(model, X_poly, y, cv=5)
 
 print("각 Fold 정확도:", scores)
 print("평균 정확도:", np.mean(scores))
+
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'C': [0.01, 0.1, 1, 10, 100],
+    'max_iter': [2000, 5000]
+}
+
+grid = GridSearchCV(LogisticRegression(), param_grid, cv=5)
+grid.fit(X_poly, y)
+
+print("최적 하이퍼파라미터:", grid.best_params_)
+print("평균 정확도:", grid.best_score_)
