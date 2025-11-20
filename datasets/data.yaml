@@ -1,0 +1,8 @@
+path: C:/prac/ai_prac/datasets
+train: images/train
+val: images/val
+
+names:
+  0: fire
+  1: smoke
+  2: confusing_light
